@@ -43,18 +43,24 @@
 <div class="main">
 <?php
 if(isset($_POST['main'])) {
-    system("ls | grep -v -E 'コミット.php' | xargs rm -r");
+    system("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
     system("git clone https://github.com/rinkunnn-hp/rinkunnn.git");
     system("mv ./rinkunnn/* /var/www/html");
     system("rm -r /var/www/html/rinkunnn");
 }
 if(isset($_POST['club'])) {
-    system("ls | grep -v -E 'コミット.php' | xargs rm -r");
+    system("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
     system("git clone https://github.com/rinkunnn-hp/club.git");
-    system("mv ./rinkunnn/* /var/www/html");
+    system("mv ./club/* /var/www/html");
     system("rm -r /var/www/html/club");
 }
 ?>
+<form action="コミット.php" method="post">
+    <input type="submit" name="main" value="コミット">
+    <input type="submit" name="club" value="コミット">
+    <input type="submit" name="logout" value="ログアウト">
+</form>
+<?php
 <form action="コミット.php" method="post">
     <input type="submit" name="main" value="コミット">
     <input type="submit" name="club" value="コミット">
