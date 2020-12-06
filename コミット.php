@@ -43,16 +43,16 @@
 <div class="main">
 <?php
 if(isset($_POST['main'])) {
-    system("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
-    system("git clone https://github.com/rinkunnn-hp/rinkunnn.git");
-    system("mv ./rinkunnn/* /var/www/html");
-    system("rm -r /var/www/html/rinkunnn");
+    exec("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
+    exec("git clone https://github.com/rinkunnn-hp/rinkunnn.git");
+    exec("mv ./rinkunnn/* /var/www/html");
+    exec("rm -r /var/www/html/rinkunnn");
 }
 if(isset($_POST['club'])) {
-    system("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
-    system("git clone https://github.com/rinkunnn-hp/club.git");
-    system("mv ./club/* /var/www/html");
-    system("rm -r /var/www/html/club");
+    exec("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
+    exec("git clone https://github.com/rinkunnn-hp/club.git");
+    exec("mv ./club/* /var/www/html");
+    exec("rm -r /var/www/html/club");
 }
 ?>
 <form action="コミット.php" method="post">
