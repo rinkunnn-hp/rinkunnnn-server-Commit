@@ -61,12 +61,6 @@ if(isset($_POST['club'])) {
     <input type="submit" name="logout" value="ログアウト">
 </form>
 <?php
-<form action="コミット.php" method="post">
-    <input type="submit" name="main" value="コミット">
-    <input type="submit" name="club" value="コミット">
-    <input type="submit" name="logout" value="ログアウト">
-</form>
-<?php
  
 session_start();
  
