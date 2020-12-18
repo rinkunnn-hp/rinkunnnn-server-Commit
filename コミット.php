@@ -42,45 +42,17 @@
 			<script src="/assets/js/main.js"></script>
 <div class="main">
 <?php
-if(isset($_POST['main'])) {
-    exec("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
-    exec("git clone https://github.com/rinkunnn-hp/rinkunnn.git");
-    exec("mv ./rinkunnn/* /var/www/html");
-    exec("rm -r /var/www/html/rinkunnn");
-}
 if(isset($_POST['club'])) {
-    exec("ls | grep -v -E 'コミット.php'|'コミット.css'|'掲示板/date.txt' | xargs rm -r");
-    exec("git clone https://github.com/rinkunnn-hp/club.git");
-    exec("mv ./club/* /var/www/html");
-    exec("rm -r /var/www/html/club");
+    exec("ls | grep -v -E 'コミット.php'| xargs rm -r");
+    exec("git clone https://github.com/rinkunnn-hp/rinkunnn-server.git");
+    exec("mv ./rinkunnn-server/* /var/www/html");
+    exec("rm -r /var/www/html/rinkunnn-server");
 }
 ?>
 <form action="コミット.php" method="post">
-    <input type="submit" name="main" value="コミット">
     <input type="submit" name="club" value="コミット">
-    <input type="submit" name="logout" value="ログアウト">
 </form>
 <?php
- 
-session_start();
- 
-//ログイン済みかを確認
-if (!isset($_SESSION['USER'])) {
-    header('Location: /ログイン/index.php');
-    exit;
-}
- 
-//ログアウト機能
-if(isset($_POST['logout'])){
-    
-    $_SESSION = [];
-    session_destroy();
- 
-    header('Location: /ログイン/index.php');
-    exit;
-}
- 
-?>
 </div>
 </body>
 </html>
