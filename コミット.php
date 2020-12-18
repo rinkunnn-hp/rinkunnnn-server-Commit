@@ -52,7 +52,6 @@ if(isset($_POST['club'])) {
 <form action="コミット.php" method="post">
     <input type="submit" name="club" value="コミット">
 </form>
-<?php
 </div>
 </body>
 </html>
